@@ -1,4 +1,15 @@
+import { useEffect, useState } from "react";
+
 const ModalUpgrade = () => {
+
+    const [showScript, setShowScript] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShowScript(true)
+        }, 300);
+    }, []);
+
     return (
         <>
             <button id="modalButton" type="button" className="d-none" data-bs-toggle="modal" data-bs-target="#modalUpgrades">
@@ -20,7 +31,9 @@ const ModalUpgrade = () => {
                 </div>
             </div>
 
-            <script>const myModal = new bootstrap.Modal(document.getElementById('modalUpgrades'), options)</script>
+            {
+                showScript && <script>const myModal = new bootstrap.Modal(document.getElementById("modalUpgrades"), options)</script>
+            }
         </>
     );
 }

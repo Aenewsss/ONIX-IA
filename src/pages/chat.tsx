@@ -14,9 +14,9 @@ const Chat = () => {
         <section className="chat-page d-flex flex-column justify-content-center h-100vh align-items-center ">
             <Sidebar />
 
-            <ChatMessages yourMessages={yourMessages}/>
+            <ChatMessages yourMessages={yourMessages} GPTMessages={GPTMessages}/>
 
-            <Input yourMessages={yourMessages} setYourMessages={setYourMessages}/>
+            <Input yourMessages={yourMessages} setYourMessages={setYourMessages} GPTMessages={GPTMessages} setGPTMessages={setGPTMessages}/>
 
             <Footer />
         </section>

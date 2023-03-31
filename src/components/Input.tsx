@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
+import { chatService } from "../services/chat.service";
 
-const Input = ({ setYourMessages, yourMessages }: any) => {
+const Input = ({ setYourMessages, yourMessages, GPTMessages, setGPTMessages }: any) => {
 
     const {
         transcript,
@@ -17,16 +18,20 @@ const Input = ({ setYourMessages, yourMessages }: any) => {
             SpeechRecognition.stopListening()
             resetTranscript()
         } else {
-            SpeechRecognition.startListening({
-                language: "pt-br"
-            })
+            SpeechRecognition.startListening({ language: "pt-br" })
         }
+    }
+
+
+    async function getGptResponse(message: string) {
+        const result = chatService.sendMessage(message).then(response => setGPTMessages([...GPTMessages, response]))
     }
 
     const verifyListening = () => {
         if (voiceText.length > 0 && !listening) {
             setYourMessages([...yourMessages, voiceText]);
-            resetTranscript()
+            resetTranscript();
+            getGptResponse(voiceText)
             return
         }
     }
@@ -35,11 +40,10 @@ const Input = ({ setYourMessages, yourMessages }: any) => {
         verifyListening();
     }, [listening]);
 
+
     useEffect(() => {
         setVoiceText(transcript);
     }, [transcript]);
-
-
 
     return (
         <div className="mb-5 pb-3 w-100 container fixed-bottom">
