@@ -32,7 +32,7 @@ const ModalUpgrade = () => {
             </div>
 
             {
-                showScript && <script>const myModal = new bootstrap.Modal(document.getElementById("modalUpgrades"), options)</script>
+                showScript && <script>const myModal = new bootstrap.Modal(document.getElementById(&quot;modalUpgrades&quot;), options)</script>
             }
         </>
     );

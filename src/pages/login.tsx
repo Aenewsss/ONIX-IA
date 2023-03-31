@@ -11,8 +11,6 @@ const Login = () => {
     function login(e: any) {
         e.preventDefault()
 
-        alert(email + " " + password);
-
         router.push('chat')
     }
 

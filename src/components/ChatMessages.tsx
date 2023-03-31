@@ -11,7 +11,7 @@ const ChatMessages = ({ yourMessages, GPTMessages }: any) => {
             return GPTMessages.map((gptMessage: any, indexG: number) => {
                 if (indexY == indexG) {
                     return (
-                        <div className="pb-5">
+                        <div key={(indexY + indexG + indexG) * (indexG + indexY)} className="pb-5">
                             <div className="bg-dark">
                                 <p className="container text-start text-white bg-dark p-3 pt-5 pb-5">{yourMessage}</p>
                             </div>

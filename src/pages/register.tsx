@@ -11,9 +11,8 @@ const Register = () => {
 
     function registerAccount(e: any) {
         e.preventDefault()
-        alert(name + " " + email + " " + password);
 
-        router.push('login')
+        router.push('chat')
     }
 
     return (

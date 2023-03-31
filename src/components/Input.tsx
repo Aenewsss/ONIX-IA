@@ -53,7 +53,7 @@ const Input = ({ setYourMessages, yourMessages, GPTMessages, setGPTMessages }: a
             </button>
 
             {
-                !browserSupportsSpeechRecognition && <span className="text-danger">Browser doesn't support speech recognition.</span>
+                !browserSupportsSpeechRecognition && <span className="text-danger">Browser doesn&apos;t support speech recognition.</span>
             }
         </div>
     );
